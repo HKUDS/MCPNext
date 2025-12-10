@@ -798,5 +798,5 @@ MCPNext builds upon excellent open-source projects, we sincerely thank their aut
 
 <p align="center">
   <em> ❤️ Thanks for visiting ✨ MCPNext!</em><br><br>
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=HKUDS.MCP-NExT&style=for-the-badge&color=00d4ff" alt="Views">
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=HKUDS.MCPNext&style=for-the-badge&color=00d4ff" alt="Views">
 </p>
