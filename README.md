@@ -24,7 +24,7 @@ MCPNext is a **Next-Gen Universal Tool-Use Layer** that transforms how AI agents
 
 ⚡ **Fast - Lightning Tool Retrieval**
 - **Smart Context Management**: Progressive tool filtering delivers exact tools in milliseconds through multi-stage pipeline, eliminating context pollution while maintaining speed.
-- 
+
 - **Zero-Waste Processing**: Pre-computed embeddings and lazy initialization eliminate redundant processing - tools are instantly ready across all executions.
 
 📈 **Scalable - Self-Evolving Tool Intelligence**
