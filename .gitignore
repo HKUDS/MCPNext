@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+.pytest_cache/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Environment files
+.env
+!.env.example
+
+# Logs
+logs/
+
+# Embedding cache
+.mcpnext/
+
+# Config files
+mcpnext/config/config_dev.json
+
+# LLM keys
+mcpnext/llm/remote_client/
+
+# Local server temp files
+mcpnext/local_server/temp/

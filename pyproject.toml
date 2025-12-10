@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcpnext"
+version = "0.1.0"
+description = "MCPNext: Universal Tool-Use Layer for AI Agents"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "lingruixu@HKUDS", email = "lingruixu.db@gmail.com"}
+]
+
+dependencies = [
+    "litellm>=1.70.0",
+    "python-dotenv>=1.0.0",
+    "openai>=1.0.0",
+    "jsonschema>=4.25.0",
+    "mcp>=1.0.0",
+    "anthropic>=0.71.0",
+    "pillow>=12.0.0",
+    "flask>=3.1.0",
+    "pyautogui>=0.9.54",
+    "pydantic>=2.12.0",
+    "requests>=2.32.0",
+]
+
+[project.optional-dependencies]
+macos = [
+    "pyobjc-core>=12.0",
+    "pyobjc-framework-cocoa>=12.0",
+    "pyobjc-framework-quartz>=12.0",
+    "atomacos>=3.2.0",
+]
+
+linux = [
+    "python-xlib>=0.33",
+    "pyatspi>=2.38.0",
+    "numpy>=1.24.0",
+]
+
+windows = [
+    "pywinauto>=0.6.8",
+    "pywin32>=306",
+    "PyGetWindow>=0.0.9",
+]
+
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+
+all = [
+    "mcpnext[macos,linux,windows,dev]",
+]
+
+[project.urls]
+Repository = "https://github.com/HKUDS/MCPNext"
+"Bug Tracker" = "https://github.com/HKUDS/MCPNext/issues"
+
+[project.scripts]
+mcpnext = "mcpnext.__main__:run_main"
+mcpnext-server = "mcpnext.local_server.main:main"
+
+[tool.setuptools]
+packages = {find = {where = ["."], include = ["mcpnext*"]}}
+
+[tool.setuptools.package-data]
+mcpnext = [
+    "config/*.json",
+    "config/*.json.example",
+    "local_server/config.json",
+    "local_server/README.md",
+]

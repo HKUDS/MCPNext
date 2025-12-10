@@ -1,0 +1,65 @@
+{
+  "shell": {
+    "timeout": 60,
+    "max_retries": 3,
+    "retry_interval": 3.0,
+    "default_shell": "/bin/bash",
+    "working_dir": "/Users/xulingrui/Desktop/MCPNext",
+    "env": {},
+    "conda_env": "metachain",
+    "default_port": 5000
+  },
+  "mcp": {
+    "timeout": 30,
+    "max_retries": 3,
+    "retry_interval": 2.0,
+    "sandbox": false,
+    "auto_initialize": true,
+    "eager_sessions": false,
+    "sse_read_timeout": 300.0
+  },
+  "gui": {
+    "timeout": 90,
+    "max_retries": 3,
+    "retry_interval": 5.0,
+    "driver_type": "pyautogui",
+    "failsafe": false,
+    "screenshot_on_error": true,
+    "pkgs_prefix": "import pyautogui; import time; pyautogui.FAILSAFE = {failsafe}; {command}"
+  },
+  "tool_search": {
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "max_tools": 300,
+    "search_mode": "hybrid",
+    "enable_llm_filter": true,
+    "llm_filter_threshold": 500,
+    "enable_cache_persistence": true,
+    "cache_dir": "/Users/xulingrui/Desktop/MCPNext/.mcpnext/embedding_cache"
+  },
+  
+  "tool_cache_ttl": 600,
+  "tool_cache_maxsize": 500,
+
+  "debug": false,
+  "log_level": "INFO",
+  "enabled_backends": [
+    {
+      "name": "shell",
+      "provider_cls": "mcpnext.grounding.backends.shell.ShellProvider"
+    },
+    {
+      "name": "web",
+      "provider_cls": "mcpnext.grounding.backends.web.WebProvider"
+    },
+    {
+      "name": "mcp",
+      "provider_cls": "mcpnext.grounding.backends.mcp.MCPProvider"
+    },
+    {
+      "name": "gui",
+      "provider_cls": "mcpnext.grounding.backends.gui.GUIProvider"
+    }
+  ],
+  
+  "_comment_system_backend": "Note: 'system' backend is automatically registered and always available. It provides meta-level tools for querying system state. Do not add it to enabled_backends as it requires special initialization."
+}
