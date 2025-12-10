@@ -4,7 +4,7 @@
     <img src="assets/MCPNext_logo.png" width="800px" style="border: none; box-shadow: none;" alt="MCPNext Logo">
 </picture>
 
-# MCPNext: Universal Tool-Use Layer for AI Agents
+# MCPNext: Next-Gen Universal Tool-Use Layer for AI Agents
 
 ### ✨ **One Line of Code to Supercharge any Agent with <br>Fast, Scalable and Powerful Tool Use** ✨
 
