@@ -23,15 +23,18 @@ MCPNext is a **Next-Gen Universal Tool-Use Layer** that transforms how AI agents
 ## 💡 Research Highlights
 
 ⚡ **Fast - Lightning Tool Retrieval**
-- **Smart Context Management**: Progressive tool filtering delivers exact tools in milliseconds through multi-stage pipeline, eliminating context pollution while maintaining speed.<br>
+- **Smart Context Management**: Progressive tool filtering delivers exact tools in milliseconds through multi-stage pipeline, eliminating context pollution while maintaining speed.
+- 
 - **Zero-Waste Processing**: Pre-computed embeddings and lazy initialization eliminate redundant processing - tools are instantly ready across all executions.
 
 📈 **Scalable - Self-Evolving Tool Intelligence**
-- **Adaptive MCP Tool Selection**: Smart caching and selective re-indexing maintain constant performance from 10 to 10,000 tools with optimal resource usage.<br>
+- **Adaptive MCP Tool Selection**: Smart caching and selective re-indexing maintain constant performance from 10 to 10,000 tools with optimal resource usage.
+  
 - **Self-Evolving Tool Optimization**: System continuously improves through persistent memory, becoming more efficient as your tool ecosystem expands.
 
 🌍 **Powerful - Universal Automation**
-- **Quality-Aware Selection**: Built-in reliability tracking and safety controls deliver production-ready automation through persistent learning and execution safeguards.<br>
+- **Quality-Aware Selection**: Built-in reliability tracking and safety controls deliver production-ready automation through persistent learning and execution safeguards.
+
 - **Universal Tool-Use Capability**: Multi-backend architecture seamlessly extends beyond web APIs to system operations, GUI automation, and deep research through unified interface.
 
 ## ⚡ Easy-to-Use and Effortless Integration
