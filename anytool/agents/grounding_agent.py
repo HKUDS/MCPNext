@@ -76,8 +76,8 @@ class GroundingAgent(BaseAgent):
             context["workspace_artifacts"] = workspace_info
             logger.info(f"Workspace has {len(workspace_info['files'])} existing files: {workspace_info['files']}")
         
-        # Get available tools
-        tools = await self._get_available_tools()
+        # Get available tools (auto-search with cap)
+        tools = await self._get_available_tools(instruction)
         
         # Initialize iteration state
         max_iterations = context.get("max_iterations", self._max_iterations)
@@ -241,16 +241,31 @@ class GroundingAgent(BaseAgent):
         
         return messages
 
-    async def _get_available_tools(self) -> List:
+    async def _get_available_tools(self, task_description: Optional[str]) -> List:
         """
-        GroundingAgent retrieves ALL available tools from all backends in scope
-        and lets LLM make the final tool selection based on task requirements.
+        Retrieve tools with auto-search + cap to control prompt bloat.
+        Falls back to returning all tools if search fails.
         """
         grounding_client = self.grounding_client
         if not grounding_client:
             return []
-        
-        # Retrieve tools from all backends in scope
+
+        backends = [BackendType(name) for name in self._backend_scope]
+
+        try:
+            tools = await grounding_client.get_tools_with_auto_search(
+                task_description=task_description,
+                backend=backends,
+                use_cache=True,
+            )
+            logger.info(
+                f"GroundingAgent selected {len(tools)} tools (auto-search) from {len(backends)} backends"
+            )
+            return tools
+        except Exception as e:
+            logger.warning(f"Auto-search tools failed, falling back to full list: {e}")
+
+        # Fallback: fetch all tools (previous behaviour)
         all_tools = []
         for backend_name in self._backend_scope:
             try:
@@ -260,9 +275,9 @@ class GroundingAgent(BaseAgent):
                 logger.debug(f"Retrieved {len(tools)} tools from backend: {backend_name}")
             except Exception as e:
                 logger.debug(f"Could not get tools from {backend_name}: {e}")
-        
+
         logger.info(
-            f"GroundingAgent retrieved {len(all_tools)} tools from {len(self._backend_scope)} backends"
+            f"GroundingAgent fallback retrieved {len(all_tools)} tools from {len(self._backend_scope)} backends"
         )
         return all_tools
 
